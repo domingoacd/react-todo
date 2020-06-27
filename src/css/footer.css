@@ -1,0 +1,9 @@
+.footer {
+  height: var(--footer-height);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 2% 1% 0;
+  background-color: var(--lightgray);
+  color: var(--color-text-secondary);
+}
