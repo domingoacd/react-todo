@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../components/Button';
-import Mini_list from '../components/Mini_list';
+import MiniList from '../components/MiniList';
 import '../css/content.css';
 
 export default class Content extends React.Component{
@@ -12,7 +12,8 @@ export default class Content extends React.Component{
           <h2>This are your lists</h2>
           <Button type="new_list" />
           <div className="lists_container">
-            <Mini_list color="blue" name="Homework" amount_of_tasks="4"/>
+            <MiniList color="blue" name="Homework" amount_of_tasks="4"/>
+            <MiniList color="orange" name="Chores" amount_of_tasks="2"/>
           </div>
         </div>
       </div>

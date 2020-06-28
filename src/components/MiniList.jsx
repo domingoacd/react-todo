@@ -1,6 +1,7 @@
 import React from 'react';
+import '../css/mini_list.css';
 
-export default class Mini_list extends React.Component {
+export default class MiniList extends React.Component {
   render() {
     return(
       <div className={`mini_list ${this.props.color}`}>
