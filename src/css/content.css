@@ -1,3 +1,25 @@
 .content {
+  position: relative;
   min-height: calc(100vh - var(--footer-height));
+}
+
+.main {
+ display: flex;
+ flex-direction: column;
+ align-items: center; 
+ padding: 2rem 1rem;
+}
+
+.main h1 {
+  color: var(--color-text-primary);
+}
+.main h2 {
+  margin-bottom: 2rem;
+  color: var(--color-text-secondary);
+}
+
+.main .lists_container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
