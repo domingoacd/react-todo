@@ -14,6 +14,7 @@ export default class Content extends React.Component{
           <div className="lists_container">
             <MiniList color="blue" name="Homework" amount_of_tasks="4"/>
             <MiniList color="orange" name="Chores" amount_of_tasks="2"/>
+            {/* <p className="no_lists">Oh, there are no lists yet.</p> */}
           </div>
         </div>
       </div>

@@ -24,3 +24,9 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.main .lists_container .no_lists {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--lightgray);
+}
