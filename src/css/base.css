@@ -32,3 +32,13 @@ body {
   min-height: 100vh;
 }
 
+.icon-close {
+  position: relative;
+  cursor: pointer;
+  opacity: 0.5;
+  background-image: url('../assets/img/cerrar.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+

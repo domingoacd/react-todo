@@ -41,6 +41,7 @@ export default class Modal extends React.Component {
     if (type === 'add_list') {
       content = 
         <div className="modal-content">
+          <div className="icon-close" onClick={this.closeModal}></div>
           <h4 className="modal-title">List name</h4>
           <input type="text" className="text-input" onChange={this.handleInputChange}/>
           <Button type="save_list" clickHandler={this.saveList}/>

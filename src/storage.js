@@ -1,7 +1,11 @@
 const storage = {
-
-  storageAlreadyExist: function() { 
-    return localStorage.getItem('todo-lists')
+  colors: ['blue', 'orange', 'purple', 'pink'],
+  getRandomColor: function() {
+    const randomNumber = Math.round(Math.random() * (this.colors.length - 1)); 
+    return this.colors[randomNumber];
+  },
+  storageAlreadyExist: function() {
+    return localStorage.getItem('todo-lists');
   },
 
   getLists: function() {
@@ -12,15 +16,16 @@ const storage = {
     const lists = this.getLists();
     return lists[lists.length - 1];
   },
-  
+
   saveList: function(listName) {
     const allLists = this.getLists();
     const newList = {
       id: 0,
       name: listName,
+      color: this.getRandomColor(),
       tasks: []
-    }
-    let lastItem = ""; 
+    };
+    let lastItem = '';
     if (allLists) {
       lastItem = this.getLastItem();
       newList.id = lastItem.id + 1;
@@ -33,7 +38,7 @@ const storage = {
 
   clearLists: function() {
     localStorage.clear();
-  }
+  },
 };
 
 export default storage; 

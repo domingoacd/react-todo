@@ -44,18 +44,17 @@ export default class Content extends React.Component{
     }
   }
   updateLists(newLists) {
-    this.setState({lists: newLists});
+    this.setState({
+      thereAreNoLists: false,
+      lists: newLists
+    });
   }
   getAllLists() {
     const lists = this.state.lists.map(list => {
-      return <MiniList key={list.id} color="blue" name={list.name} amount_of_tasks={list.tasks.length}/>;
+      return <MiniList key={list.id} color={list.color} name={list.name} amount_of_tasks={list.tasks.length}/>;
     });
 
-    return(
-      <div>
-        {lists}
-      </div>
-    )
+    return lists;
   }
   render() {
     return (
