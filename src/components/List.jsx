@@ -24,6 +24,17 @@ export default class List extends React.Component {
             <button className="menu" onClick={this.handleMenu}><img src={menu} alt="Menu"/></button>
           </div>
         </div>
+
+          <div className="tasks-container">
+            <div className="tasks-wrapper">
+              <h3 className="tasks-title">
+                Tasks
+              </h3>
+              <div className="tasks">
+                
+              </div>
+            </div>
+          </div>
       </div>);  
   }
 }

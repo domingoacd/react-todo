@@ -27,7 +27,7 @@
 
 .list-header .header-container {
   width: 100%;
-  max-width: 60rem;
+  max-width: 45rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,6 +35,8 @@
 
 .list-header .list-title {
   text-transform: capitalize;
+  font-size: 2.5rem;
+  font-weight: 400;
 } 
 
 .list-header .btnBack {
@@ -72,7 +74,31 @@
   height: 100%;
 }
 
+.tasks-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: 0 auto;
+  color: var(--color-text-primary);
+}
+.tasks-container .tasks-wrapper {
+  width: 100%;
+  max-width: 45rem;
+}
 
+.tasks-container .tasks-title {
+  font-size: 2rem;
+  font-weight: 400;
+  padding-bottom: 1%;
+  border-bottom: 3px solid var(--lightgray);
+}
+
+.tasks-container .tasks {
+  width: 100%;
+  
+}
 /* COLORS */
 
 .list.pink .list-header {
