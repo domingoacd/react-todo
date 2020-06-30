@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../components/Button';
 import MiniList from '../components/MiniList';
 import Modal from '../components/Modal';
+import List from '../components/List';
 import storage from '../storage';
 import '../css/content.css';
 
@@ -13,12 +14,22 @@ export default class Content extends React.Component{
       thereAreNoLists: true,
       lists: null,
       showModal: false,
-      modalType: undefined
+      modalType: undefined,
+      currentList: false
     }
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.updateLists = this.updateLists.bind(this);
+    this.showListConent = this.showListConent.bind(this);
+    this.closeList = this.closeList.bind(this);
   }
+
+  showListConent(listId) {
+    const listToShow = storage.getSpecificList(listId);
+    this.setState({currentList: listToShow});
+    console.log(listToShow)
+  }
+
   handleButtonClick(operation) {
     if (operation.action === 'showModal') {
       this.setState({
@@ -30,6 +41,10 @@ export default class Content extends React.Component{
 
   closeModal() {
     this.setState({showModal: false});
+  }
+
+  closeList() {
+    this.setState({currentList: false});
   }
 
   componentDidMount () {
@@ -51,7 +66,7 @@ export default class Content extends React.Component{
   }
   getAllLists() {
     const lists = this.state.lists.map(list => {
-      return <MiniList key={list.id} color={list.color} name={list.name} amount_of_tasks={list.tasks.length}/>;
+      return <MiniList key={list.id} listId={list.id} color={list.color} name={list.name} amount_of_tasks={list.tasks.length} showList={this.showListConent}/>;
     });
 
     return lists;
@@ -60,6 +75,7 @@ export default class Content extends React.Component{
     return (
       <div className="content">
         <Modal show={this.state.showModal} type={this.state.modalType} close={this.closeModal} updateLists={this.updateLists}/>
+        <List listData={this.state.currentList} close={this.closeList}/>
         <div className="main">
           <h1>Hello!</h1>
           <h2>This are your lists</h2>

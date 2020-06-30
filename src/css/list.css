@@ -1,0 +1,89 @@
+.list {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  transition: width 0.5s;
+  overflow: hidden;
+  background-color: var(--white);
+}
+
+.list.show {
+  width: 100%;
+  z-index: 5;
+}
+
+.list-header {
+  width: 100%;
+  min-height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: var(--white);
+  transition: background 0.7s;
+}
+
+.list-header .header-container {
+  width: 100%;
+  max-width: 60rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-header .list-title {
+  text-transform: capitalize;
+} 
+
+.list-header .btnBack {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  filter: invert(100%);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.list-header .btnBack img {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.list-header .menu {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  filter: invert(100%);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.list-header .menu img {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* COLORS */
+
+.list.pink .list-header {
+  background-color: var(--pink);
+}
+.list.orange .list-header {
+  background-color: var(--orange);
+}
+.list.blue .list-header {
+  background-color: var(--blue);
+}
+.list.green .list-header {
+  background-color: var(--green);
+}

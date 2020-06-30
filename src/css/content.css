@@ -20,6 +20,7 @@
 
 .main .lists_container {
   width: 100%;
+  max-width: 50rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

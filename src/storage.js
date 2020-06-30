@@ -16,7 +16,10 @@ const storage = {
     const lists = this.getLists();
     return lists[lists.length - 1];
   },
-
+  getSpecificList: function(listId) {
+    const allLists = this.getLists();
+    return allLists.find(list => list.id === listId);
+  },
   saveList: function(listName) {
     const allLists = this.getLists();
     const newList = {
