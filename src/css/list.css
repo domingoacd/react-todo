@@ -12,6 +12,7 @@
 .list.show {
   width: 100%;
   z-index: 5;
+  overflow-y: auto;
 }
 
 .list-header {
@@ -31,12 +32,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
 .list-header .list-title {
   text-transform: capitalize;
   font-size: 2.5rem;
   font-weight: 400;
+  text-align: center;
 } 
 
 .list-header .btnBack {
@@ -92,24 +95,31 @@
   font-size: 2rem;
   font-weight: 400;
   padding-bottom: 1%;
+  margin-bottom: 2.5rem;
   border-bottom: 3px solid var(--lightgray);
 }
 
 .tasks-container .tasks {
   width: 100%;
-  
+  margin-bottom: 2rem;
+}
+
+.tasks-container .no-tasks {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--lightgray);
 }
 /* COLORS */
 
-.list.pink .list-header {
+.list.pink .list-header, .list.pink .btn.add_task {
   background-color: var(--pink);
 }
-.list.orange .list-header {
+.list.orange .list-header, .list.orange .btn.add_task {
   background-color: var(--orange);
 }
-.list.blue .list-header {
+.list.blue .list-header, .list.blue .btn.add_task {
   background-color: var(--blue);
 }
-.list.green .list-header {
+.list.green .list-header, .list.green .btn.add_task {
   background-color: var(--green);
 }

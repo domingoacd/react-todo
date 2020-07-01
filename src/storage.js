@@ -1,8 +1,8 @@
 const storage = {
-  colors: ['blue', 'orange', 'purple', 'pink'],
+  COLORS: ['blue', 'orange', 'purple', 'pink'],
   getRandomColor: function() {
-    const randomNumber = Math.round(Math.random() * (this.colors.length - 1)); 
-    return this.colors[randomNumber];
+    const randomNumber = Math.round(Math.random() * (this.COLORS.length - 1)); 
+    return this.COLORS[randomNumber];
   },
   storageAlreadyExist: function() {
     return localStorage.getItem('todo-lists');
@@ -42,6 +42,44 @@ const storage = {
   clearLists: function() {
     localStorage.clear();
   },
+  getLastTaskFromList: function(listId) {
+    const list = this.getSpecificList(listId);
+    const tasks = list.tasks;
+    return tasks.length > 0 ? tasks[tasks.length - 1]: false;
+  },
+  getNewTaskIdFromList: function(listId) {
+    const lastTask = this.getLastTaskFromList(listId);
+    let lastTaskIdNumber = '';
+    let newTaskIdNumber = '';
+    let newId = '';
+
+    if (lastTask) {
+      lastTaskIdNumber = Number(lastTask.id.slice(lastTask.id.indexOf('t')).match(/\d+/)[0]);
+      newTaskIdNumber = lastTaskIdNumber + 1;
+      newId = `${listId}-t${newTaskIdNumber}`;
+    } else {
+      newId = `${listId}-t0`
+    }
+    return newId;
+  },
+  insertTaskIntoList: function(text, listId) {
+    const allLists = this.getLists();
+    const taskId = this.getNewTaskIdFromList(listId);
+
+    allLists.forEach(list => {
+      if (list.id === listId) {
+        list.tasks.push({
+          id: taskId,
+          text: text,
+          done: false
+        });
+      }
+    });
+    localStorage.setItem('todo-lists', JSON.stringify(allLists));
+  },
+  markTaskAsDone: function(taskId) {
+
+  }
 };
 
 export default storage; 

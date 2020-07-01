@@ -14,6 +14,7 @@ export default class Modal extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.saveList = this.saveList.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.saveTask = this.saveTask.bind(this);
   }
 
   handleInputChange(e) {
@@ -36,6 +37,18 @@ export default class Modal extends React.Component {
     this.closeModal();
   }
 
+  saveTask() {
+    const taskName = this.state.inputValue;
+    const listId = this.props.list.id;
+    let updatedLists = '';
+
+    storage.insertTaskIntoList(taskName, listId);
+    updatedLists = storage.getLists();
+
+    this.props.updateLists(updatedLists);
+    this.closeModal();
+  }
+
   getModalContent(type) {
     let content = "";
     if (type === 'add_list') {
@@ -45,6 +58,14 @@ export default class Modal extends React.Component {
           <h4 className="modal-title">List name</h4>
           <input type="text" className="text-input" onChange={this.handleInputChange}/>
           <Button type="save_list" clickHandler={this.saveList}/>
+        </div>;
+    } else if (type === 'add_task') {
+      content =
+        <div className="modal-content">
+          <div className="icon-close" onClick={this.closeModal}></div>
+          <h4 className="modal-title">Task:</h4>
+          <input type="text" className="text-input" onChange={this.handleInputChange} />
+          <Button type="save_task" clickHandler={this.saveTask} color={this.props.list.color}/>
         </div>;
     }
     return content;

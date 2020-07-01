@@ -22,12 +22,12 @@ export default class Content extends React.Component{
     this.updateLists = this.updateLists.bind(this);
     this.showListConent = this.showListConent.bind(this);
     this.closeList = this.closeList.bind(this);
+    this.updateCurrentList = this.updateCurrentList.bind(this);
   }
 
   showListConent(listId) {
     const listToShow = storage.getSpecificList(listId);
     this.setState({currentList: listToShow});
-    console.log(listToShow)
   }
 
   handleButtonClick(operation) {
@@ -58,11 +58,25 @@ export default class Content extends React.Component{
       this.setState({thereAreNoLists: true});
     }
   }
+  updateCurrentList() {
+
+  }
   updateLists(newLists) {
-    this.setState({
-      thereAreNoLists: false,
-      lists: newLists
+    this.setState((prevState, props) => {
+      const oldCurrentList = prevState.currentList;
+      const newCurrentList = newLists.find(list => list.id === oldCurrentList.id);
+
+      return {
+        thereAreNoLists: false,
+        lists: newLists,
+        currentList: newCurrentList
+      }
     });
+    // this.setState({
+    //   thereAreNoLists: false,
+    //   lists: newLists
+    // });
+    this.updateCurrentList();
   }
   getAllLists() {
     const lists = this.state.lists.map(list => {
@@ -72,10 +86,23 @@ export default class Content extends React.Component{
     return lists;
   }
   render() {
+    console.log(this.state.currentList ? this.state.currentList.tasks.length: 'no')
     return (
       <div className="content">
-        <Modal show={this.state.showModal} type={this.state.modalType} close={this.closeModal} updateLists={this.updateLists}/>
-        <List listData={this.state.currentList} close={this.closeList}/>
+        
+        <Modal 
+          show={this.state.showModal} 
+          type={this.state.modalType} 
+          close={this.closeModal} 
+          updateLists={this.updateLists} 
+          list={this.state.currentList ? this.state.currentList : false}
+        />
+
+        <List 
+          listData={this.state.currentList} 
+          close={this.closeList} 
+          openModal={this.handleButtonClick}
+        />
         <div className="main">
           <h1>Hello!</h1>
           <h2>This are your lists</h2>
@@ -87,8 +114,6 @@ export default class Content extends React.Component{
                 :
                 this.getAllLists()
             }
-            
-            {/* <p className="no_lists">Oh, there are no lists yet.</p> */}
           </div>
         </div>
       </div>

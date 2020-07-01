@@ -15,8 +15,11 @@ export default class Button extends React.Component{
         action: 'showModal',
         modalToShow: 'add_list'
       }
-    } else if (this.props.type === 'save_list') {
-       
+    } else if (this.props.type === 'add_task') {
+    operation = {
+      action: 'showModal',
+      modalToShow: 'add_task'
+    }       
     }
     this.props.clickHandler(operation);
   }
@@ -31,13 +34,18 @@ export default class Button extends React.Component{
       ;
     } else if (type === 'save_list') {
       content = 'Save list';
+    } else if(type === 'add_task') {
+      content = 'Add task'
+    } else if(type === 'save_task') {
+      content = 'Save task'
     }
     return content;
   }
   render() {
     const buttonType = this.props.type;
+    const buttonColor = this.props.color ? this.props.color : '';
     return (
-      <button className={`btn ${buttonType}`} onClick={this.executetClickEvent}>
+      <button className={`btn ${buttonType} ${buttonColor}`} onClick={this.executetClickEvent}>
         {this.getButtonContent(buttonType)}
       </button>
     );

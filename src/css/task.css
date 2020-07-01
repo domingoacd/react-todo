@@ -1,0 +1,30 @@
+.task {
+  display: flex;
+  align-items: center;
+  padding: 2%;
+  border-bottom: 2px solid var(--lightgray);
+}
+.task input[type="checkbox"]{
+  appearance: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 2px;
+  margin-right: 1rem;
+  outline: unset;
+  cursor: pointer;
+  background-color: #fff;
+  border: 2px solid var(--lightgray);
+}
+
+.task.pink input[type="checkbox"]:checked {
+  background-color: var(--pink);
+}
+.task.orange input[type="checkbox"]:checked {
+  background-color: var(--orange);
+}
+.task.blue input[type="checkbox"]:checked {
+  background-color: var(--blue);
+}
+.task.green input[type="checkbox"]:checked {
+  background-color: var(--green);
+}

@@ -39,11 +39,34 @@
   font-size: 1.5rem;
 }
 
-.btn.save_list {
+.btn.save_list, .btn.save_task {
   width: 60%;
   height: 3rem;
   border-radius: 10px;
   font-size: 1.2rem;
   color: #fff;
   background-color: var(--color-text-secondary);
+}
+
+.btn.add_task {
+  width: 100%;
+  max-width: 22rem;
+  margin: 0 auto;
+  height: 3rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  color: var(--white);
+}
+
+.btn.pink {
+  background-color: var(--pink);
+}
+.btn.orange {
+  background-color: var(--orange);
+}
+.btn.blue {
+  background-color: var(--blue);
+}
+.btn.green {
+  background-color: var(--green);
 }
