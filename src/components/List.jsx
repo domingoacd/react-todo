@@ -10,6 +10,7 @@ export default class List extends React.Component {
     super(props);
     this.handleMenu = this.handleMenu.bind(this);
     this.getTasksContent = this.getTasksContent.bind(this);
+
   }
   handleMenu() {
 
@@ -29,13 +30,12 @@ export default class List extends React.Component {
   }
   render() {
     const { listData } = this.props;
-    
     return (
       <div className={`list ${listData? 'show ' + listData.color : ''}`}>
         <div className={`list-header`}>
           <div className="header-container">
             <button className="btnBack" onClick={this.props.close}><img src={backArrow} alt="Close list"/></button>
-            <h2 className="list-title">{listData.name}</h2>
+            <h2 className="list-title">{listData ? listData.name : ''}</h2>
             <button className="menu" onClick={this.handleMenu}><img src={menu} alt="Menu"/></button>
           </div>
         </div>
@@ -45,8 +45,10 @@ export default class List extends React.Component {
               <h3 className="tasks-title">
                 Tasks
               </h3>
-              {
-                this.getTasksContent()
+              { 
+                this.props.listData ?
+                  this.getTasksContent()
+                  : ''
               }
               <Button type="add_task" clickHandler={this.props.openModal}/>
             </div>

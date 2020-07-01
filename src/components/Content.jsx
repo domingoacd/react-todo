@@ -44,7 +44,10 @@ export default class Content extends React.Component{
   }
 
   closeList() {
-    this.setState({currentList: false});
+    this.setState({
+      currentList: false,
+      lists: storage.getLists()
+    });
   }
 
   componentDidMount () {

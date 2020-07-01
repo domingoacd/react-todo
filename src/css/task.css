@@ -1,8 +1,13 @@
 .task {
+  position: relative;
   display: flex;
   align-items: center;
   padding: 2%;
   border-bottom: 2px solid var(--lightgray);
+}
+
+.task.hide {
+  display: none;
 }
 .task input[type="checkbox"]{
   appearance: none;
@@ -14,6 +19,22 @@
   cursor: pointer;
   background-color: #fff;
   border: 2px solid var(--lightgray);
+}
+
+.task .delete-task {
+  position: absolute;
+  right: 2%;
+  display: block;
+  width: 0.8rem;
+  height: 1rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.task .delete-task img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .task.done {

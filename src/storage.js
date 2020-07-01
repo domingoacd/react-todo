@@ -103,6 +103,25 @@ const storage = {
 
     list.tasks = newListTasks;
     this.updateList(listId, list);
+  },
+  deleteTask: function(taskToDelete) {
+    const allLists = this.getLists();
+    const listId = Number(taskToDelete.split('-')[0]);
+    const parentList = allLists.find(list => list.id === listId);
+    const newTasks = parentList.tasks.filter(task => task.id !== taskToDelete);
+    let newLists = '';
+
+    parentList.tasks = newTasks;
+
+    newLists = allLists.map(list => {
+      if (list.id === listId) {
+        return parentList;
+      } else {
+        return list;
+      }
+    });
+
+    localStorage.setItem('todo-lists', JSON.stringify(newLists));
   }
 };
 
