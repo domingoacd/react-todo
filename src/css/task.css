@@ -16,6 +16,14 @@
   border: 2px solid var(--lightgray);
 }
 
+.task.done {
+  text-decoration: line-through;
+}
+
+.task.done p::before {
+  content: "\00a0-\00a0-\00a0-\00a0";
+}
+
 .task.pink input[type="checkbox"]:checked {
   background-color: var(--pink);
 }
@@ -25,6 +33,19 @@
 .task.blue input[type="checkbox"]:checked {
   background-color: var(--blue);
 }
-.task.green input[type="checkbox"]:checked {
-  background-color: var(--green);
+.task.purple input[type="checkbox"]:checked {
+  background-color: var(--purple);
+}
+
+.task.pink.done {
+  color: var(--pink);
+}
+.task.orange.done {
+  color: var(--orange);
+}
+.task.blue.done {
+  color: var(--blue);
+}
+.task.purple.done {
+  color: var(--purple);
 }

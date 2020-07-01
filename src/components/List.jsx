@@ -20,7 +20,7 @@ export default class List extends React.Component {
     let content = '';
     if (tasks && tasks.length > 0) {
       content = tasks.map(task => {
-        return <Task taskData={task} key={task.id} color={this.props.listData.color}/>;
+        return <Task taskData={task} key={task.id} color={this.props.listData.color} update={this.props.updateTask}/>;
       });
     } else {
       content = <p className="no-tasks">No tasks</p>

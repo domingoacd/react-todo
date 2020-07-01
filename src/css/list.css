@@ -120,6 +120,6 @@
 .list.blue .list-header, .list.blue .btn.add_task {
   background-color: var(--blue);
 }
-.list.green .list-header, .list.green .btn.add_task {
-  background-color: var(--green);
+.list.purple .list-header, .list.purple .btn.add_task {
+  background-color: var(--purple);
 }

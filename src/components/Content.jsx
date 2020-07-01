@@ -22,7 +22,7 @@ export default class Content extends React.Component{
     this.updateLists = this.updateLists.bind(this);
     this.showListConent = this.showListConent.bind(this);
     this.closeList = this.closeList.bind(this);
-    this.updateCurrentList = this.updateCurrentList.bind(this);
+    this.updateTask = this.updateTask.bind(this);
   }
 
   showListConent(listId) {
@@ -58,8 +58,8 @@ export default class Content extends React.Component{
       this.setState({thereAreNoLists: true});
     }
   }
-  updateCurrentList() {
-
+  updateTask(taskToUpdate) {
+    
   }
   updateLists(newLists) {
     this.setState((prevState, props) => {
@@ -72,11 +72,6 @@ export default class Content extends React.Component{
         currentList: newCurrentList
       }
     });
-    // this.setState({
-    //   thereAreNoLists: false,
-    //   lists: newLists
-    // });
-    this.updateCurrentList();
   }
   getAllLists() {
     const lists = this.state.lists.map(list => {
@@ -86,7 +81,6 @@ export default class Content extends React.Component{
     return lists;
   }
   render() {
-    console.log(this.state.currentList ? this.state.currentList.tasks.length: 'no')
     return (
       <div className="content">
         
@@ -102,6 +96,7 @@ export default class Content extends React.Component{
           listData={this.state.currentList} 
           close={this.closeList} 
           openModal={this.handleButtonClick}
+          updateTask={this.updateTask}
         />
         <div className="main">
           <h1>Hello!</h1>

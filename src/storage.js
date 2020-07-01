@@ -77,8 +77,32 @@ const storage = {
     });
     localStorage.setItem('todo-lists', JSON.stringify(allLists));
   },
-  markTaskAsDone: function(taskId) {
 
+  updateList: function(oldListId, newList) {
+    const allLists = this.getLists();
+    const newLists = allLists.map(list => {
+      if (list.id === newList.id) {
+        return newList
+      } else {
+        return list
+      }
+    });
+
+    localStorage.setItem('todo-lists', JSON.stringify(newLists));
+  },
+  updateTask: function(taskId, taskState) {
+    const listId = Number(taskId.split('-')[0]);
+    const list = this.getSpecificList(listId);
+    const newListTasks = list.tasks.map(task => {
+      if (task.id === taskId) {
+        task.done = taskState;
+      }
+
+      return task;
+    });
+
+    list.tasks = newListTasks;
+    this.updateList(listId, list);
   }
 };
 
