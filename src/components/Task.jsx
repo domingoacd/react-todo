@@ -16,7 +16,6 @@ export default class Task extends React.Component {
   }
 
   componentDidUpdate() {
-    this.props.update(this.state.id);
     storage.updateTask(this.state.id, this.state.done);
   }
   handleChange(e) {

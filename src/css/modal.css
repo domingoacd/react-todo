@@ -46,6 +46,12 @@
 
 .modal-content .modal-title {
   font-size: 2rem;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.modal.delete_list .modal-content .modal-title {
+  font-size: 1.5rem;
 }
 
 .modal-content .text-input {

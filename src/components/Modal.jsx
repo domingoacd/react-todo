@@ -15,6 +15,7 @@ export default class Modal extends React.Component {
     this.saveList = this.saveList.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.saveTask = this.saveTask.bind(this);
+    this.deleteList = this.deleteList.bind(this);
   }
 
   handleInputChange(e) {
@@ -22,9 +23,13 @@ export default class Modal extends React.Component {
   }
 
   closeModal() {
+    this.setState({ inputValue: '' });
     this.props.close();
   }
 
+  deleteList() {
+    this.props.deleteList();
+  }
   saveList() {
     const listName = this.state.inputValue;
     let updatedLists = '';
@@ -33,7 +38,7 @@ export default class Modal extends React.Component {
     updatedLists = storage.getLists();
     this.props.updateLists(updatedLists);
 
-    this.setState({inputValue: ''});
+    
     this.closeModal();
   }
 
@@ -56,7 +61,7 @@ export default class Modal extends React.Component {
         <div className="modal-content">
           <div className="icon-close" onClick={this.closeModal}></div>
           <h4 className="modal-title">List name</h4>
-          <input type="text" className="text-input" onChange={this.handleInputChange}/>
+          <input type="text" className="text-input" onChange={this.handleInputChange} value={this.state.inputValue}/>
           <Button type="save_list" clickHandler={this.saveList}/>
         </div>;
     } else if (type === 'add_task') {
@@ -64,8 +69,15 @@ export default class Modal extends React.Component {
         <div className="modal-content">
           <div className="icon-close" onClick={this.closeModal}></div>
           <h4 className="modal-title">Task:</h4>
-          <input type="text" className="text-input" onChange={this.handleInputChange} />
+          <input type="text" className="text-input" onChange={this.handleInputChange} value={this.state.inputValue}/>
           <Button type="save_task" clickHandler={this.saveTask} color={this.props.list.color}/>
+        </div>;
+    } else if (type === 'delete_list') {
+      content =
+        <div className="modal-content">
+          <div className="icon-close" onClick={this.closeModal}></div>
+          <h4 className="modal-title">Are you sure you want to delete this list?</h4>
+          <Button type="delete_list" clickHandler={this.deleteList} color={this.props.list.color} />
         </div>;
     }
     return content;

@@ -38,6 +38,8 @@ export default class Button extends React.Component{
       content = 'Add task'
     } else if(type === 'save_task') {
       content = 'Save task'
+    } else if(type === 'delete_list') {
+      content = 'Delete list'
     }
     return content;
   }

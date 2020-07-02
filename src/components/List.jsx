@@ -3,17 +3,20 @@ import Button from "../components/Button";
 import Task from "../components/Task";
 import '../css/list.css';
 import backArrow from '../assets/img/back.png';
-import menu from '../assets/img/menu.png';
+import trash from '../assets/img/delete.png';
 export default class List extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleMenu = this.handleMenu.bind(this);
+    this.deleteList = this.deleteList.bind(this);
     this.getTasksContent = this.getTasksContent.bind(this);
 
   }
-  handleMenu() {
-
+  deleteList() {
+    this.props.openModal({
+      action: 'showModal',
+      modalToShow: 'delete_list'
+    });
   }
 
   getTasksContent() {
@@ -21,7 +24,7 @@ export default class List extends React.Component {
     let content = '';
     if (tasks && tasks.length > 0) {
       content = tasks.map(task => {
-        return <Task taskData={task} key={task.id} color={this.props.listData.color} update={this.props.updateTask}/>;
+        return <Task taskData={task} key={task.id} color={this.props.listData.color} />;
       });
     } else {
       content = <p className="no-tasks">No tasks</p>
@@ -36,7 +39,7 @@ export default class List extends React.Component {
           <div className="header-container">
             <button className="btnBack" onClick={this.props.close}><img src={backArrow} alt="Close list"/></button>
             <h2 className="list-title">{listData ? listData.name : ''}</h2>
-            <button className="menu" onClick={this.handleMenu}><img src={menu} alt="Menu"/></button>
+            <button className="delete" onClick={this.deleteList}><img src={trash} alt="Menu"/></button>
           </div>
         </div>
 

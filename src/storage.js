@@ -29,7 +29,7 @@ const storage = {
       tasks: []
     };
     let lastItem = '';
-    if (allLists) {
+    if (allLists && allLists.length > 0) {
       lastItem = this.getLastItem();
       newList.id = lastItem.id + 1;
       allLists.push(newList);
@@ -122,6 +122,12 @@ const storage = {
     });
 
     localStorage.setItem('todo-lists', JSON.stringify(newLists));
+  },
+  deleteList: function(listId) {
+    const allLists = this.getLists();
+    const updatedLists = allLists.filter(list => list.id !== listId);
+    
+    localStorage.setItem('todo-lists', JSON.stringify(updatedLists));
   }
 };
 

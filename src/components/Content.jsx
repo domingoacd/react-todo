@@ -22,14 +22,14 @@ export default class Content extends React.Component{
     this.updateLists = this.updateLists.bind(this);
     this.showListConent = this.showListConent.bind(this);
     this.closeList = this.closeList.bind(this);
-    this.updateTask = this.updateTask.bind(this);
+    this.deleteList = this.deleteList.bind(this);
   }
 
   showListConent(listId) {
     const listToShow = storage.getSpecificList(listId);
     this.setState({currentList: listToShow});
   }
-
+  
   handleButtonClick(operation) {
     if (operation.action === 'showModal') {
       this.setState({
@@ -61,7 +61,19 @@ export default class Content extends React.Component{
       this.setState({thereAreNoLists: true});
     }
   }
-  updateTask(taskToUpdate) {
+  deleteList() {
+    const listId = this.state.currentList.id; 
+    let newLists = '';
+    storage.deleteList(listId);
+    newLists = storage.getLists();
+    
+    this.setState({
+      lists: newLists.length > 0 ? newLists: null,
+      thereAreNoLists: newLists.length > 0 ? false: true,
+      showModal: false,
+      modalType: undefined,
+      currentList: false
+    });
     
   }
   updateLists(newLists) {
@@ -93,13 +105,13 @@ export default class Content extends React.Component{
           close={this.closeModal} 
           updateLists={this.updateLists} 
           list={this.state.currentList ? this.state.currentList : false}
+          deleteList={this.deleteList}
         />
 
         <List 
           listData={this.state.currentList} 
           close={this.closeList} 
           openModal={this.handleButtonClick}
-          updateTask={this.updateTask}
         />
         <div className="main">
           <h1>Hello!</h1>
