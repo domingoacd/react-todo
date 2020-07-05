@@ -34,7 +34,6 @@ export default class Modal extends React.Component {
     const listName = this.state.inputValue;
     let updatedLists = '';
     storage.saveList(listName);
-
     updatedLists = storage.getLists();
     this.props.updateLists(updatedLists);
 

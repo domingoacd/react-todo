@@ -14,8 +14,8 @@
   transform: scale(1.1);
 }
 
-.brn:active {
-  outline: unset;
+.btn:active, .btn:focus {
+  outline: none;
 }
 
 .btn.new_list {

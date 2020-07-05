@@ -52,6 +52,10 @@
   background-color: transparent;
 }
 
+.list-header .btnBack:active, .list-header .btnBack:focus, .list-header .delete:active, .list-header .delete:focus {
+  outline: none;
+}
+
 .list-header .btnBack img {
   position: absolute;
   top: 0%;
@@ -110,7 +114,18 @@
   color: var(--lightgray);
 }
 /* COLORS */
-
+.list.pink .list-header {
+  box-shadow: 0px 2px 10px var(--pink);
+}
+.list.orange .list-header {
+  box-shadow: 0px 2px 10px var(--orange);
+}
+.list.blue .list-header {
+  box-shadow: 0px 2px 10px var(--blue);
+}
+.list.purple .list-header {
+  box-shadow: 0px 2px 10px var(--purple);
+}
 .list.pink .list-header, .list.pink .btn.add_task {
   background-color: var(--pink);
 }

@@ -79,7 +79,8 @@ export default class Content extends React.Component{
   updateLists(newLists) {
     this.setState((prevState, props) => {
       const oldCurrentList = prevState.currentList;
-      const newCurrentList = newLists.find(list => list.id === oldCurrentList.id);
+      const newCurrentList = 
+        newLists.find(list => oldCurrentList !== undefined && list.id === oldCurrentList.id);
 
       return {
         thereAreNoLists: false,
