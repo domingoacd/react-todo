@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/domingoacd/react-todo/static/css/main.92126f6a.chunk.css",
+    "main.js": "/domingoacd/react-todo/static/js/main.940a11fb.chunk.js",
+    "main.js.map": "/domingoacd/react-todo/static/js/main.940a11fb.chunk.js.map",
+    "runtime-main.js": "/domingoacd/react-todo/static/js/runtime-main.9675c332.js",
+    "runtime-main.js.map": "/domingoacd/react-todo/static/js/runtime-main.9675c332.js.map",
+    "static/js/2.b8f350bd.chunk.js": "/domingoacd/react-todo/static/js/2.b8f350bd.chunk.js",
+    "static/js/2.b8f350bd.chunk.js.map": "/domingoacd/react-todo/static/js/2.b8f350bd.chunk.js.map",
+    "index.html": "/domingoacd/react-todo/index.html",
+    "precache-manifest.b862d55c2daeb84d70a249b9a510ac37.js": "/domingoacd/react-todo/precache-manifest.b862d55c2daeb84d70a249b9a510ac37.js",
+    "service-worker.js": "/domingoacd/react-todo/service-worker.js",
+    "static/css/main.92126f6a.chunk.css.map": "/domingoacd/react-todo/static/css/main.92126f6a.chunk.css.map",
+    "static/js/2.b8f350bd.chunk.js.LICENSE.txt": "/domingoacd/react-todo/static/js/2.b8f350bd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9675c332.js",
+    "static/js/2.b8f350bd.chunk.js",
+    "static/css/main.92126f6a.chunk.css",
+    "static/js/main.940a11fb.chunk.js"
+  ]
+}
