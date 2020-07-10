@@ -52,7 +52,7 @@ export default class Content extends React.Component{
 
   componentDidMount () {
     const savedLists = storage.getLists();
-    if (savedLists) {
+    if (savedLists && savedLists.length > 0) {
       this.setState({
         thereAreNoLists: false,
         lists: savedLists

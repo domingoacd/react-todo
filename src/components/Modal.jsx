@@ -19,7 +19,7 @@ export default class Modal extends React.Component {
   }
 
   handleInputChange(e) {
-    this.setState({inputValue: e.target.value.trim()});
+    this.setState({inputValue: e.target.value});
   }
 
   closeModal() {
